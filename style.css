@@ -24,3 +24,10 @@ body{
 h2{
     text-decoration: underline;
 }
+h2{
+    paddling: 24px;
+    font-size: 2rem;
+    texte-align: center;
+    animation : reveal linear;
+    animation-timeline : view();
+}
