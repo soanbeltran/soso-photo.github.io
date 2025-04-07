@@ -24,10 +24,74 @@ body{
 h2{
     text-decoration: underline;
 }
-h2{
-    paddling: 24px;
-    font-size: 2rem;
-    texte-align: center;
-    animation : reveal linear;
-    animation-timeline : view();
+Créer des effets lors du défilement (scroll) en CSS peut ajouter une touche dynamique et interactive à votre site web. Voici quelques méthodes pour y parvenir :
+
+1. Utiliser scroll-behavior pour un défilement fluide
+html {
+  scroll-behavior: smooth;
 }
+
+2. Effet de parallaxe avec CSS et JavaScript
+
+Pour un effet de parallaxe, vous pouvez utiliser un peu de JavaScript en complément du CSS :
+
+HTML :
+
+<div class="parallax"></div>
+
+
+CSS :
+
+.parallax {
+  background-image: url('votre-image.jpg');
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+3. Effet de fade-in lors du défilement avec Intersection Observer
+
+HTML :
+
+<div class="fade-in-section">Votre contenu ici</div>
+
+
+CSS :
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+JavaScript :
+
+const faders = document.querySelectorAll('.fade-in-section');
+
+const appearOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add('is-visible');
+      appearOnScroll.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
