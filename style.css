@@ -1,0 +1,26 @@
+h1 {
+    letter-spacing: 4px;
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    letter-spacing: 1px;
+}
+div {
+    text-align: center;
+}
+img{
+    margin: 10px
+    }
+h1{
+    margin: 30px;
+}
+h1{
+    font-family: Georgia, serif;
+}
+body{
+    background-color: rgb(119, 255, 255);
+}
+h2{
+    text-decoration: underline;
+}
